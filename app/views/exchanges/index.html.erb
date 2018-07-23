@@ -1,25 +1,49 @@
-<div class='container'>
-  <div class='row main'>
-    <div class='col-lg-3 offset-lg-1 col-md-10 offset-md-1 exchange_box'>
-      <div class='row'>
-          <div class='col-md-8 offset-md-2 text-sm-center'>
-            <%= image_tag '/logo.png', class: 'img-fluid'%>
-          </div>
-      </div>
-
-      <div class='row'>
-        <%= render 'exchange_box' %>
-      </div>
-    </div>
-
-    <div class='col-lg-7 offset-lg-1 hidden-sm-down title-box'>
-      <div class='row'>
-        <h2 class='subtitle'>Converta facilmente suas Moedas</h2>
-      </div>
-
-      <div class='row'>
-        <h3 class='subtitle'>Para qualquer moeda no Mundo!</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4 offset-lg-4">
+      <div class="logo">
+        <%= image_tag '/logo.png' %>
       </div>
     </div>
   </div>
+  <div class="row">
+    <div class="col-lg-10 offset-lg-1">
+      <%= form_tag('/convert', method: :get, id: 'exchange_form') do %>
+      <div class="card-group">
+        <div class="card">
+          <div class="card-header de"></div>
+          <div class="card-body">
+            <div class='local_currency'>
+              <div class='form-group'>
+                <%= select_tag 'source_currency', options_for_select(currency_list), class: 'form-control inputs-shadow', id: 'source_currency', prompt: 'Selecione uma moeda' %>
+              </div>
+            </div>
+          </div>
+          <button id="change-button" type="button">
+            <%= image_tag 'change_values.png', width: 30 %>
+          </button>
+        </div>
+        <div class="card">
+          <div class="card-header para">Para:</div>
+          <div class="card-body">
+            <div class='destination_currency'>
+              <div class='form-group'>
+                <%= select_tag 'target_currency', options_for_select(currency_list), class: 'form-control inputs-shadow', id: 'target_currency', prompt: 'Selecione uma moeda' %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header resultado">Quantidade</div>
+          <div class="card-body">
+            <div class='form-group'>
+              <input type='number' name='amount' id='amount' class='form-control inputs-shadow' placeholder='Quantidade ($10)' step='any' required="required">
+              <input type='text' id='result' name='result' class='form-control inputs-shadow' placeholder='Resultado' readonly="readonly">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
 </div>
