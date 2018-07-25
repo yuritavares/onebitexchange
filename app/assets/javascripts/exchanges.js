@@ -55,7 +55,8 @@ $(document).ready(function() {
         'THB': 'Dólar de Singapura',
         'TRY': 'Lira Turca',
         'USD': 'Dolar Americano',
-        'ZAR': 'Rand da África do Sul'
+        'ZAR': 'Rand da África do Sul',
+        'BTC': 'Bitcoin'
       };
       if (currencyDictionary[currency] === undefined) {
         return ""
