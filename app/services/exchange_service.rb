@@ -15,7 +15,7 @@ class ExchangeService
       url = "#{exchange_api_url}convert?q=#{@source_currency}_#{@target_currency}"
       res = RestClient.get url
       value = JSON.parse(res.body)['results']["#{@source_currency}_#{@target_currency}"]['val'].to_f
-
+      
       value * @amount
     rescue RestClient::ExceptionWithResponse => e
       e.response

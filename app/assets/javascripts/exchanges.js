@@ -15,12 +15,24 @@ $(document).ready(function() {
           return alert(textStatus);
         },
         success: function(data, text, jqXHR) {
-          return $('#result').val(data.value);
+          return $('#result').val(data.value.toFixed(2))
         }
       });
     }
-  });
+  });  
 
+  // using lodash to make a delay and submit the form without button
+  function api_call() {
+    $('form').submit()
+  }
+
+ 
+  $('#amount').on('keydown', _.debounce(api_call, 260,{
+    'leading': true,
+    'trailing': true
+  }));
+  // end submit form without button
+  
     //function dictionary
     function currencyFullName(currency) {
       var currencyDictionary = {
