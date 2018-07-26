@@ -101,6 +101,7 @@ $(document).ready(function() {
       var sourceValue = $("#source_currency").val();
       $("#source_currency").val(targetValue).trigger('change');
       $("#target_currency").val(sourceValue).trigger('change');
+      api_call().trigger('keydown')
     })
     // end change values
 
