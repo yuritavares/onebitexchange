@@ -79,8 +79,8 @@ $(document).ready(function() {
     // end of function
 
     // default values
-      $("div.de").html("<span>De:</span>" + " " + currencyFullName($('#source_currency').val()));
-      $("div.para").html("<span>Para:</span>" + " " + currencyFullName($('#target_currency').val()));
+    $("div.de").html("<span>De:</span>" + " " + currencyFullName($('#source_currency').val()));
+    $("div.para").html("<span>Para:</span>" + " " + currencyFullName($('#target_currency').val()));
     // end default values
 
     //when select change
@@ -101,8 +101,8 @@ $(document).ready(function() {
       var sourceValue = $("#source_currency").val();
       $("#source_currency").val(targetValue).trigger('change');
       $("#target_currency").val(sourceValue).trigger('change');
-      api_call().trigger('keydown')
-    })
+      api_call();
+    });
     // end change values
 
     //rotate function
