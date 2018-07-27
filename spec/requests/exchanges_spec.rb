@@ -18,9 +18,10 @@ RSpec.describe 'Exchanges', type: :request do
     it 'returns http success' do
       get '/convert', params: {
                         source_currency: "USD",
-                        target_currency: "BRL",
+                        target_currency: "PHP",
                         amount: @amount
                       }
+      
       expect(response).to have_http_status(200)
     end
   end
