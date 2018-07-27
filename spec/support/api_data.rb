@@ -1,19 +1,21 @@
 RSpec.configure do |config|
   config.before(:each) do
-    stub_request(:get, /currencydatafeed.com/ )
+    stub_request(:get, /free.currencyconverterapi.com/)
     .with(headers: {
       'Accept'=>'*/*'
     }).to_return(status: 200, body: '
       {
-        "status": true,
-        "currency": [
-            {
-                "currency": "USD/BRL",
-                "value": "3.41325",
-                "date": "2018-04-20 17:22:59",
-                "type": "original"
+        "query": {
+            "count": 1
+        },
+        "results": {
+            "USD_PHP": {
+                "id": "USD_PHP",
+                "val": 53.299999,
+                "to": "PHP",
+                "fr": "USD"
             }
-        ]
-      }', headers: {})
+        }
+    }', headers: {})
   end
 end
